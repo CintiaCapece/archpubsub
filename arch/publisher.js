@@ -1,5 +1,5 @@
 const mqtt = require('mqtt');
-const match = require('mqtt-match');
+//const match = require('mqtt-match');
 
 var client;
 
@@ -33,14 +33,6 @@ const init = () => {
         publishTopic("Luciano: Hola");
     });
 }
-//Suscripción
-const subscribeTopic = () => {
-    client.subscribe(`${topic}`, err => {
-        if (!err) {
-            console.log("[MQTTSERVICE][SUSCRIBE]", topic)
-        }
-    })
-}
 
 //Obtencion del mensaje
 const messageTopic = () => {
@@ -49,14 +41,6 @@ const messageTopic = () => {
         console.log("message is "+ message.toString());
         console.log("topic is "+ topic);
     });
-}
-// Desuscripción de tópico
-const unsubscribeTopic = (topic_aux) => {
-    client.unsubscribe(topic, err => {
-        if (!err) {
-            console.log("[MQTTSERVICE][UNSUSCRIBE]", topic)
-        }
-    })
 }
 
 // Publicación
@@ -67,9 +51,6 @@ const publishTopic = (message) => {
 }
 
 module.exports = {
-    init,
-    subscribeTopic,
-    unsubscribeTopic,
     messageTopic,
     publishTopic,
 }

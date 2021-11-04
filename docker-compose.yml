@@ -6,6 +6,7 @@ services:
     container_name: eclipse-mosquitto
     tty: true
     volumes:
+      - ./bash:/bash
       - ./mosquitto/mosquitto.conf:/mosquitto/config/mosquitto.conf
     ports:
       - 1883:1883
